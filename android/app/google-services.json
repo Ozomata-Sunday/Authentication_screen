@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "655793857957",
+    "project_id": "authentication-screen-5297d",
+    "storage_bucket": "authentication-screen-5297d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655793857957:android:c8ae1f31d52c7d0935f44c",
+        "android_client_info": {
+          "package_name": "com.authentication_screen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvcLMQpMmkKhK_3RLv7OCFTzYSOEfqNHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
