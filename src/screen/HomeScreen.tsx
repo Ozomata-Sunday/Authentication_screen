@@ -45,7 +45,7 @@ const HomeScreen = ({navigation}: any) => {
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Chat');
+                // navigation.navigate('Chat');
               }}>
               <Ionicons name="chatbox-outline" size={30} color="blue" />
             </TouchableOpacity>

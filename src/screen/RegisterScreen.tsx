@@ -12,11 +12,13 @@ import {
   ToastAndroid,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const RegisterScreen = ({navigation}: any) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [spin, setSpin] = useState(false);
 
   const handleSignUp = async () => {
     if (!email || !password || !name) {
@@ -24,6 +26,7 @@ const RegisterScreen = ({navigation}: any) => {
       console.log('Enter Name, Email, & password');
     } else {
       try {
+        setSpin(true);
         const userCredential = await auth().createUserWithEmailAndPassword(
           email,
           password,
@@ -35,12 +38,14 @@ const RegisterScreen = ({navigation}: any) => {
           handleCodeInApp: true,
           url: 'https://authentication-screen-5297d.firebaseapp.com',
         });
+        ToastAndroid.show('Account created successfully!', ToastAndroid.LONG);
         navigation.navigate('Login');
-        ToastAndroid.show('Account created successfully!', ToastAndroid.SHORT);
         console.log('User account created successfully');
       } catch (error: any) {
         Alert.alert('Error', error.message);
         console.error('Error during user registration:', error);
+      } finally {
+        setSpin(false);
       }
     }
   };
@@ -51,6 +56,7 @@ const RegisterScreen = ({navigation}: any) => {
       resizeMode="cover"
       style={styles.container}>
       <StatusBar hidden={false} />
+      <Spinner visible={spin} animation="fade" />
       <View style={styles.wrapper}>
         <TextInput
           style={styles.input}
